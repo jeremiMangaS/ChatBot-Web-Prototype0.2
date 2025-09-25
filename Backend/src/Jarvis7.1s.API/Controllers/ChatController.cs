@@ -49,10 +49,33 @@ public class ChatController : ControllerBase
 
         var response = await client.PostAsync(apiEndpoint, httpContent);
 
+        // Response Messages
         if (response.IsSuccessStatusCode)
         {
             var responseBody = await response.Content.ReadAsStringAsync();
-            return Ok(JsonDocument.Parse(responseBody));
+
+            try
+            {
+                using (JsonDocument doc = JsonDocument.Parse(responseBody))
+                {
+                    string extractedText = doc.RootElement
+                    .GetProperty("candidates")[0]
+                    .GetProperty("content")
+                    .GetProperty("parts")[0]
+                    .GetProperty("text")
+                    .GetString();
+
+                    var simpleResponse = new { responseText = extractedText };
+
+                    return Ok(simpleResponse); // Clean string response
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Failed to parse the response from LLM");
+            }
+
+            // return Ok(JsonDocument.Parse(responseBody)); // For Postman
         }
         else
         {
