@@ -58,7 +58,7 @@ public class ChatController : ControllerBase
             {
                 using (JsonDocument doc = JsonDocument.Parse(responseBody))
                 {
-                    string extractedText = doc.RootElement
+                    string? extractedText = doc.RootElement
                     .GetProperty("candidates")[0]
                     .GetProperty("content")
                     .GetProperty("parts")[0]

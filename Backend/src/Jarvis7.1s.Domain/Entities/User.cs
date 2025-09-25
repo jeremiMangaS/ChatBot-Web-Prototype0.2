@@ -1,4 +1,4 @@
-namespace Jarvis7.Domain.Entities;
+namespace Jarvis7s.Domain.Entities;
 
 public class User
 {
