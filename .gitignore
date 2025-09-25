@@ -1,0 +1,16 @@
+# .NET Core build folders
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio temporary files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Rider temporary files
+.idea/
+
+# User-specific files
+*.userprefs
+*.DS_Store
