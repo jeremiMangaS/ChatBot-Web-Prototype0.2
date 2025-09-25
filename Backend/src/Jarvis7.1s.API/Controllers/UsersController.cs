@@ -1,7 +1,7 @@
-using Jarvis7.Domain.Entities;
+using Jarvis7s.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Jarvis7.API.Controllers;
+namespace Jarvis7s.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")] // Controller URL access
