@@ -25,6 +25,9 @@ export default function MainContent() {
         setMessages(prevMessages => [...prevMessages, newUserMessage]);
         setIsLoading(true);
         
+        const currentChatHistory =[...messages, newUserMessage];    
+        setMessages(currentChatHistory);
+        setIsLoading(true);
         // Send request to Backend
         try 
         {
@@ -33,7 +36,7 @@ export default function MainContent() {
                 headers : {
                     'Content-Type' : 'application/json',
                 },
-                body : JSON.stringify({ prompt : inputText }),
+                body : JSON.stringify({ history : currentChatHistory }),
             });
 
             if (!response.ok) {
