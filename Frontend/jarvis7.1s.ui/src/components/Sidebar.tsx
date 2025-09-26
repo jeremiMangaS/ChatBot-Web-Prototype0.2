@@ -1,26 +1,19 @@
 export default function Sidebar() {
   return (
-    <aside style={{
-      width: "200px",
-      background: "#f5f5f5",
-      padding: "20px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      height: "100vh"
-    }}>
+
+    <aside className="w-64 bg-white p-5 flex flex-col justify-between">
       <div>
-        <h2>Logo</h2>
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          <li>Chat</li>
-          <li>Menu 1</li>
-          <li>Menu 2</li>
-          <li>Menu 3</li>
+        <h2 className="text-2xl font-bold mb-5">Logo</h2>
+        <ul className="space-y-2">
+
+          <li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer">Chat</li>
+          <li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer">Menu 1</li>
+          <li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer">Menu 2</li>
+          <li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer">Menu 3</li>
+          
         </ul>
       </div>
-      <div>
-        Settings
-      </div>
     </aside>
+
   );
 }
