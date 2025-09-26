@@ -28,7 +28,7 @@ export default function MainContent() {
         // Send request to Backend
         try 
         {
-            const response = await fetch('http://localhost:5323/api/chat', {
+            const response = await fetch('http://localhost:5232/api/chat', {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json',

@@ -1,7 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
+var AllowedSpesificOrigin = "_allowedSpesificOrigin";
 
+// CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowedSpesificOrigin, policy =>
+    {
+        policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+    });
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
@@ -17,5 +26,6 @@ if (app.Environment.IsDevelopment())
 }
 
 // app.UseHttpsRedirection();
+app.UseCors(AllowedSpesificOrigin);
 app.MapControllers();
 app.Run();

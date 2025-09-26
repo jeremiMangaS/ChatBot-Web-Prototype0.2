@@ -1,4 +1,5 @@
 import { Message } from "./ChatArea";
+import ReactMarkdown from 'react-markdown';
 
 interface MessageListProps {
   messages: Message[];
@@ -33,7 +34,7 @@ export default function MessageList({ messages }: MessageListProps) {
                 : 'bg-gray-200 text-gray-800'
             }`}
           >
-            {msg.content}
+            <ReactMarkdown>{msg.content}</ReactMarkdown>
           </div>
         </div>
       ))}

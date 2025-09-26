@@ -14,7 +14,7 @@ export default function ChatInput({ onSend, isLoading } : ChatInputProps )
 
     const handleSubmit = (e : React.FormEvent) => {
         e.preventDefault();
-        if (inputText.trim() && isLoading) {
+        if (inputText.trim() && !isLoading) {
             onSend(inputText);
             setInputText("");
         }
